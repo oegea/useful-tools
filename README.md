@@ -1,5 +1,5 @@
 # useful
-Monorepo to serve a set of useful tools to rapidly build new projects
+Monorepo to serve a set of useful tools to rapidly build new projects and make some operations easier.
 
 ## Available packages
 
