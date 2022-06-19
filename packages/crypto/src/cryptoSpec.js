@@ -21,7 +21,6 @@
 import {expect} from 'chai';
 
 describe('Crypto library tests', () => {
-
     const DEFAULT_PASSWORD = 'testPassword123A!NcA';
 
     let cryptoLib = require('./index.js');
