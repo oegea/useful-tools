@@ -1,6 +1,6 @@
 {
   "name": "@useful-tools/crypto",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A set of functions to make operations with the Crypto Web API easier",
   "main": "src/index.js",
   "scripts": {
