@@ -1,7 +1,7 @@
 {
-  "name": "@useful-tools/main",
+  "name": "@useful-tools/crypto",
   "version": "1.0.0",
-  "description": "A set of tools to rapidly build new projects",
+  "description": "A set of functions to make operations with the Crypto Web API easier",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,6 +11,7 @@
     "url": "git+https://github.com/oegea/useful.git"
   },
   "keywords": [
+    "crypto",
     "useful",
     "tools",
     "javascript"
@@ -20,8 +21,5 @@
   "bugs": {
     "url": "https://github.com/oegea/useful/issues"
   },
-  "homepage": "https://github.com/oegea/useful#readme",
-  "workspaces": [
-    "packages/*"
-  ]
+  "homepage": "https://github.com/oegea/useful#readme"
 }
