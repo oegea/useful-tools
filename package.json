@@ -4,7 +4,8 @@
   "description": "A set of tools to rapidly build new projects",
   "main": "src/index.js",
   "scripts": {
-    "test": "sui-test browser --headless --pattern ./packages/**/*Spec.js --timeout 15000"
+    "test": "sui-test browser --headless --pattern ./packages/**/*Spec.js --timeout 15000",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,8 @@
   ],
   "devDependencies": {
     "@s-ui/test": "8",
-    "chai": "^4.3.6"
+    "chai": "^4.3.6",
+    "husky": "^8.0.1"
   },
   "dependencies": {
     "@s-ui/bundler": "^9.29.0"
