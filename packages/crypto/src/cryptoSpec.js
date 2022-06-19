@@ -18,22 +18,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import chai, {expect} from 'chai';
-import { TextEncoder, TextDecoder } from 'util';
-import crypto from 'crypto';
+import {expect} from 'chai';
 
 describe('Crypto library tests', () => {
 
     const DEFAULT_PASSWORD = 'testPassword123A!NcA';
 
-    let cryptoLib;
-
-// beforeAll(()=>{
-    // global.TextEncoder = TextEncoder;
-    // global.TextDecoder = TextDecoder;
-    // global.crypto = crypto;
-        cryptoLib = require('./index.js');
-// });
+    let cryptoLib = require('./index.js');
 
     it('should derive an aes key from a password string', async () => {
         const salt = cryptoLib.generateSalt();
