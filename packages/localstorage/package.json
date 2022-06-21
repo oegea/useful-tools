@@ -1,6 +1,6 @@
 {
     "name": "@useful-tools/localstorage",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "A set of functions to use localstorage as if it were a database",
     "main": "src/index.js",
     "scripts": {
