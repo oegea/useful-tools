@@ -114,7 +114,7 @@ export default class LocalStorageDatabase {
 
         // Initialize uid
         if (finalDocument.id === undefined)
-        finalDocument.id = LocalStorageDatabase.getRandomId();
+            finalDocument.id = LocalStorageDatabase.getRandomId();
 
         const data = LocalStorageDatabase.getCollection(collection);
         const filtered = data.filter(item => item[field] !== value);
