@@ -4,4 +4,4 @@ This package is designed to use localstorage as if it were a no-sql database, al
 
 ## Available methods
 
-TBD...
+Under development. Please refer to `src/localstorageSpec.js` to know more.
