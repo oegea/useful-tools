@@ -1,6 +1,6 @@
 /** 
- * This file is part of Passager Password Manager.
- * https://github.com/oegea/passager-password-manager
+ * This file is part of Useful set of javascript tools.
+ * https://github.com/oegea/useful
  * 
  * Copyright (C) 2022 Oriol Egea Carvajal
  * 
@@ -20,7 +20,7 @@
 
 import {expect} from 'chai';
 
-describe('Crypto library tests', () => {
+describe('@useful-tools/crypto library tests', () => {
     const DEFAULT_PASSWORD = 'testPassword123A!NcA';
 
     let cryptoLib = require('./index.js');

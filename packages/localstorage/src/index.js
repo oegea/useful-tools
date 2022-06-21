@@ -1,3 +1,23 @@
+/** 
+ * This file is part of Useful set of javascript tools.
+ * https://github.com/oegea/useful
+ * 
+ * Copyright (C) 2022 Oriol Egea Carvajal
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 export default class LocalStorageDatabase {
 
     static subscriptors = {};
@@ -80,9 +100,6 @@ export default class LocalStorageDatabase {
 
         // Save the new data
         LocalStorageDatabase.setCollection(collection, filtered);
-
-        // Notify subscriptors
-        LocalStorageDatabase.notifySubscribers(collection, filtered);
     }
 
     // Partial updates a document
@@ -95,11 +112,14 @@ export default class LocalStorageDatabase {
             ...document
         };
 
+        // Initialize uid
+        if (finalDocument.id === undefined)
+            finalDocument.id = LocalStorageDatabase.getRandomId();
+
         const data = LocalStorageDatabase.getCollection(collection);
         const filtered = data.filter(item => item[field] !== value);
         filtered.push(finalDocument);
         LocalStorageDatabase.setCollection(collection, filtered);
-        LocalStorageDatabase.notifySubscribers(collection, filtered);
 
         return finalDocument;
     }
@@ -110,7 +130,6 @@ export default class LocalStorageDatabase {
         document.id = LocalStorageDatabase.getRandomId();
         data.push(document);
         LocalStorageDatabase.setCollection(collection, data);
-        LocalStorageDatabase.notifySubscribers(collection, data);
 
         return document;
     }
@@ -120,7 +139,6 @@ export default class LocalStorageDatabase {
         const data = LocalStorageDatabase.getCollection(collection);
         const filtered = data.filter(item => item[field] !== value);
         LocalStorageDatabase.setCollection(collection, filtered);
-        LocalStorageDatabase.notifySubscribers(collection, filtered);
 
         // Remove empty collections
         if (filtered.length === 0)
