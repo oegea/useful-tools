@@ -100,9 +100,6 @@ export default class LocalStorageDatabase {
 
         // Save the new data
         LocalStorageDatabase.setCollection(collection, filtered);
-
-        // Notify subscriptors
-        LocalStorageDatabase.notifySubscribers(collection, filtered);
     }
 
     // Partial updates a document
@@ -115,11 +112,14 @@ export default class LocalStorageDatabase {
             ...document
         };
 
+        // Initialize uid
+        if (finalDocument.id === undefined)
+        finalDocument.id = LocalStorageDatabase.getRandomId();
+
         const data = LocalStorageDatabase.getCollection(collection);
         const filtered = data.filter(item => item[field] !== value);
         filtered.push(finalDocument);
         LocalStorageDatabase.setCollection(collection, filtered);
-        LocalStorageDatabase.notifySubscribers(collection, filtered);
 
         return finalDocument;
     }
@@ -130,7 +130,6 @@ export default class LocalStorageDatabase {
         document.id = LocalStorageDatabase.getRandomId();
         data.push(document);
         LocalStorageDatabase.setCollection(collection, data);
-        LocalStorageDatabase.notifySubscribers(collection, data);
 
         return document;
     }
@@ -140,7 +139,6 @@ export default class LocalStorageDatabase {
         const data = LocalStorageDatabase.getCollection(collection);
         const filtered = data.filter(item => item[field] !== value);
         LocalStorageDatabase.setCollection(collection, filtered);
-        LocalStorageDatabase.notifySubscribers(collection, filtered);
 
         // Remove empty collections
         if (filtered.length === 0)
